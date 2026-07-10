@@ -18,10 +18,14 @@ echo ""
 
 mkdir -p "$GLOBAL_DIR"
 
-# --- 0. Бэкап того, что перезапишем ---
-mkdir -p "$BACKUP_DIR"
-[ -f "$GLOBAL_DIR/CLAUDE.md" ] && cp "$GLOBAL_DIR/CLAUDE.md" "$BACKUP_DIR/CLAUDE.md" && echo "  ✓ бэкап CLAUDE.md → $BACKUP_DIR"
-[ -d "$GLOBAL_DIR/agents" ] && cp -r "$GLOBAL_DIR/agents" "$BACKUP_DIR/agents" && echo "  ✓ бэкап agents/"
+# --- 0. Бэкап того, что перезапишем (только если есть что) ---
+if [ -f "$GLOBAL_DIR/CLAUDE.md" ] || [ -d "$GLOBAL_DIR/agents" ]; then
+  mkdir -p "$BACKUP_DIR"
+  [ -f "$GLOBAL_DIR/CLAUDE.md" ] && cp "$GLOBAL_DIR/CLAUDE.md" "$BACKUP_DIR/CLAUDE.md" && echo "  ✓ бэкап CLAUDE.md → $BACKUP_DIR"
+  [ -d "$GLOBAL_DIR/agents" ] && cp -r "$GLOBAL_DIR/agents" "$BACKUP_DIR/agents" && echo "  ✓ бэкап agents/"
+else
+  echo "  • бэкап не нужен (чистая установка)"
+fi
 echo ""
 
 # --- 1. CLAUDE.md, MODEL-ROUTING.md ---
