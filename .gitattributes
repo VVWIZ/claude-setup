@@ -1,0 +1,5 @@
+# Скрипты всегда с LF — bash не переваривает CRLF
+*.sh text eol=lf
+*.js text eol=lf
+# Остальной текст — авто
+* text=auto

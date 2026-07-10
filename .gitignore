@@ -1,0 +1,7 @@
+# Кэши скиллов
+skills/skill-stocktake/results.json
+
+# Временное
+*.log
+*.tmp
+backups/
