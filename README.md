@@ -1,6 +1,6 @@
 # Claude Setup — скиллы, правила и роутинг моделей для Claude Code
 
-Полный рабочий сетап Claude Code: 44 скилла, глобальные правила с автотриггерами, 3 субагента с роутингом моделей, хуки качества и статус-строка. Ставится одной командой.
+Полный рабочий сетап Claude Code: 47 скиллов, глобальные правила с автотриггерами, 3 субагента с роутингом моделей, хуки качества и статус-строка. Ставится одной командой.
 
 ## Быстрая установка
 
@@ -19,7 +19,7 @@ bash install.sh
 ```
 claude-setup/
 ├── CLAUDE.md              # Глобальные правила: язык, brainstorming-first, апрув правок,
-│                          #   автотриггеры 33 скиллов, роутинг моделей (карта задача→модель)
+│                          #   автотриггеры 36 скиллов, роутинг моделей (карта задача→модель)
 ├── MODEL-ROUTING.md       # Гайд: как устроен роутинг моделей и как повторить у себя
 ├── install.sh             # Установка в ~/.claude/ с бэкапом
 ├── settings.example.json  # Фрагменты для ~/.claude/settings.json (merge вручную)
@@ -31,7 +31,7 @@ claude-setup/
 │                          #   pr-url, evaluate-session (continuous learning)
 ├── commands/              # Слэш-команды: /eval, /learn, /update-codemaps
 ├── statusline/            # Статус-строка: модель сессии + Fable-режим + лимит 5h (jq-free)
-└── skills/                # 44 скилла + learned/
+└── skills/                # 47 скиллов + learned/
 ```
 
 ### Скиллы по категориям
@@ -41,13 +41,13 @@ claude-setup/
 | Оркестрация | build, plan, spec-to-code, subagent-driven-development, dispatching-parallel-agents |
 | Дисциплина (Superpowers) | systematic-debugging, test-driven-development, verification-before-completion, receiving-code-review, finishing-a-development-branch, using-git-worktrees |
 | Исследование | brainstorming, research, deep-research, interview-me |
-| Качество кода | review, api-contract-guardian, dependency-optimizer, error-handling-standardizer, performance-scanner, performance-optimization |
+| Качество кода | review, class-sweep, api-contract-guardian, dependency-optimizer, error-handling-standardizer, performance-scanner, performance-optimization |
 | База данных (Go/PostgreSQL) | postgres-patterns, database-reviewer, database-migrations |
-| Документы | docs, report, tz, test, eval-harness |
+| Документы | docs, report, task-status, tz, test, eval-harness |
 | DevOps | cicd-quick-setup, audit-server, observability-and-instrumentation |
 | Фронтенд | frontend-ui-engineering, browser-testing-with-devtools¹ |
 | Обслуживание сетапа | skill-stocktake, context-budget, rules-distill, continuous-learning, strategic-compact |
-| Инженерная культура | source-driven-development, doubt-driven-development, deprecation-and-migration |
+| Инженерная культура | source-driven-development, doubt-driven-development, simplify-this, deprecation-and-migration |
 | Роутинг моделей | fable-on, fable-off |
 | learned/ | выученные паттерны сессий (пополняется через /learn) |
 
