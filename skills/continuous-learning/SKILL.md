@@ -61,7 +61,7 @@ In `~/.claude/settings.json`:
     "Stop": [{
       "hooks": [{
         "type": "command",
-        "command": "node \"~/.claude/hooks/ecc/evaluate-session.js\"",
+        "command": "node \"$HOME/.claude/hooks/ecc/evaluate-session.js\"",
         "timeout": 15
       }]
     }]
@@ -76,6 +76,18 @@ The hook fires **max once per session** (marker file in temp), respects
 
 Use `/learn` at any point mid-session to extract a pattern without waiting
 for the session-end nudge.
+
+## При прямом вызове этого скилла
+
+Скилл описывает механику фонового хука — сам по себе он ничего не извлекает.
+Если его вызвали напрямую, сделай одно из двух и не пересказывай документацию:
+
+1. **Нужно извлечь паттерн из текущей сессии** → это `/learn`, передай работу ему.
+2. **Нужно проверить, работает ли пайплайн** → проверь по факту, а не по этому файлу:
+   хук `evaluate-session.js` присутствует и зарегистрирован в `~/.claude/settings.json`
+   на событие `Stop`; в `~/.claude/skills/learned/` лежат файлы, и у каждого есть
+   YAML-frontmatter с `name` и `description` — без него файл **не регистрируется как
+   скилл** и в контекст не попадает. Файлы без frontmatter перечисли пользователю.
 
 ## Source
 

@@ -1,6 +1,6 @@
 # Claude Setup — скиллы, правила и роутинг моделей для Claude Code
 
-Полный рабочий сетап Claude Code: 47 скиллов, глобальные правила с автотриггерами, 3 субагента с роутингом моделей, хуки качества и статус-строка. Ставится одной командой.
+Полный рабочий сетап Claude Code: 46 скиллов, глобальные правила с автотриггерами, 3 субагента с роутингом моделей, хуки качества и статус-строка. Ставится одной командой.
 
 ## Быстрая установка
 
@@ -19,7 +19,7 @@ bash install.sh
 ```
 claude-setup/
 ├── CLAUDE.md              # Глобальные правила: язык, brainstorming-first, апрув правок,
-│                          #   автотриггеры 36 скиллов, роутинг моделей (карта задача→модель)
+│                          #   автотриггеры 37 скиллов, роутинг моделей (карта задача→модель)
 ├── MODEL-ROUTING.md       # Гайд: как устроен роутинг моделей и как повторить у себя
 ├── install.sh             # Установка в ~/.claude/ с бэкапом
 ├── settings.example.json  # Фрагменты для ~/.claude/settings.json (merge вручную)
@@ -31,7 +31,7 @@ claude-setup/
 │                          #   pr-url, evaluate-session (continuous learning)
 ├── commands/              # Слэш-команды: /eval, /learn, /update-codemaps
 ├── statusline/            # Статус-строка: модель сессии + Fable-режим + лимит 5h (jq-free)
-└── skills/                # 47 скиллов + learned/
+└── skills/                # 46 скиллов + learned/ (63 разобранных случая)
 ```
 
 ### Скиллы по категориям
@@ -43,7 +43,7 @@ claude-setup/
 | Исследование | brainstorming, research, deep-research, interview-me |
 | Качество кода | review, class-sweep, api-contract-guardian, dependency-optimizer, error-handling-standardizer, performance-scanner, performance-optimization |
 | База данных (Go/PostgreSQL) | postgres-patterns, database-reviewer, database-migrations |
-| Документы | docs, report, task-status, tz, test, eval-harness |
+| Документы | docs, report, task-status, tz, test |
 | DevOps | cicd-quick-setup, audit-server, observability-and-instrumentation |
 | Фронтенд | frontend-ui-engineering, browser-testing-with-devtools¹ |
 | Обслуживание сетапа | skill-stocktake, context-budget, rules-distill, continuous-learning, strategic-compact |

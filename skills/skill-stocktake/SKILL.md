@@ -14,7 +14,7 @@ argument-hint: "[пусто — quick scan изменённого | 'full' — �
 
 | Путь | Что это |
 |------|---------|
-| `C:\Users\Lenovo\.claude\skills\` | Глобальные скиллы (все проекты) |
+| `~/.claude/skills/` | Глобальные скиллы (все проекты) — профиль текущего пользователя, чужое имя профиля не подставлять |
 | Проектная папка скиллов текущего репо (`.claude\skills\` или `shared_claude\skills\`), если существует | Проектные скиллы |
 
 В начале фазы 1 явно перечисли, какие папки нашёл и сколько в них скиллов. Папка `skill-stocktake` саму себя в оценку **не включает**.
@@ -26,7 +26,7 @@ argument-hint: "[пусто — quick scan изменённого | 'full' — �
 | Quick scan | `results.json` существует и аргумент пустой | 5–10 мин |
 | Full | `results.json` нет, или аргумент `full` | 20–30 мин |
 
-Кэш: `C:\Users\Lenovo\.claude\skills\skill-stocktake\results.json`
+Кэш: `~/.claude/skills/skill-stocktake/results.json`
 
 ## Quick scan
 
@@ -48,7 +48,7 @@ argument-hint: "[пусто — quick scan изменённого | 'full' — �
 
 ```
 Сканирую:
-  ✓ C:\Users\Lenovo\.claude\skills\                              (24 скилла)
+  ✓ ~/.claude/skills/                                           (47 скиллов)
   ✓ <проектная папка скиллов, если найдена>                      (13 скиллов)
 ```
 
@@ -129,4 +129,5 @@ argument-hint: "[пусто — quick scan изменённого | 'full' — �
 
 - Оценка слепая: один чек-лист для всех скиллов независимо от происхождения (свои, из Superpowers, из ECC).
 - Удаление/архивация — всегда с явным подтверждением.
-- Дубли-кандидаты в текущем сетапе: проверь `review` (свой) vs встроенный `code-review`, `test` vs `test-driven-development`, два `deep-research`, `research` vs `deep-research`.
+- Дубли-кандидаты в текущем сетапе: `review` (свой) vs встроенный `code-review`, `test` vs `test-driven-development`, `research` vs `deep-research`, `task-status` vs `verification-before-completion` vs `report`, `simplify-this` vs встроенный `simplify`. Скиллы, дублирующие **команды** из `commands/`, — тоже дубли: сверяй обе папки.
+- Список кандидатов выше — подсказка, а не факт: перед вердиктом проверь по диску, что оба скилла существуют. Строки такого рода протухают быстрее остального.

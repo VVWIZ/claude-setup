@@ -1,3 +1,8 @@
+---
+name: windows-gitbash-json-backslash
+description: "Git Bash на Windows конвертирует двойные бэкслеши в одинарные при вызове нативных exe, даже внутри одинарных кавычек — JSON с Windows-путями через echo доходит до node битым, JSON.parse падает, а хук с try/catch даёт ложный PASS без ошибок на экране. Решение — не гонять JSON через shell: тест-скрипт на Node со spawnSync и опцией input, либо JSON из файла. Триггерить при тестировании хуков и stdin-JSON CLI на Windows, при 'Invalid hexadecimal escape sequence' в node -e, при симптоме 'в bash-тесте молча не то, а напрямую работает'."
+---
+
 # Git Bash на Windows искажает бэкслеши в JSON при передаче через shell
 
 **Extracted:** 2026-07-06

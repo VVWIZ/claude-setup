@@ -7,7 +7,9 @@ allowed-tools: Read, Grep, Glob
 # PostgreSQL Patterns (AiPlus)
 
 Справочник под стек AiPlus: Go 1.22, pgx/v5, **PostgreSQL 16.13** (Yandex Managed), 15 схем, Watermill-очереди.
-Read-only — здесь нет правок, только паттерны и диагностические запросы. Для ревью SQL см. `database-reviewer`, для безопасных миграций — `database-migrations`. Для запуска запросов и карты таблиц — скилл `psql`.
+Read-only — здесь нет правок, только паттерны и диагностические запросы. Для ревью SQL см. `database-reviewer`, для безопасных миграций — `database-migrations`. Для запуска запросов и карты таблиц — проектный скилл `psql` репозитория AiPlus.
+
+> **Скоуп: только AiPlus.** Имена схем, таблиц, сервисов и настройки (15 схем, `Asia/Almaty`, Watermill-очереди) взяты из этого проекта. В других Go+PostgreSQL проектах применяй отсюда только общие приёмы — конкретные имена и структуры не переносить.
 
 ## Типы данных
 
@@ -122,7 +124,7 @@ DO UPDATE SET rank_score = EXCLUDED.rank_score;
 | Анти-паттерн | Чем плох |
 |--------------|----------|
 | `SELECT *` в проде | тянет лишние колонки, ломает covering-индекс |
-| seq scan по большой таблице | фильтр не по индексированной колонке (см. large-table warnings в `psql`) |
+| seq scan по большой таблице | фильтр не по индексированной колонке (см. large-table warnings в проектном скилле `psql`) |
 | OFFSET-пагинация | O(n) на больших таблицах |
 | неиндексированный FK | медленные JOIN, блокировки при каскадах |
 | `now()` внутри запроса | недетерминизм под тестами |
@@ -164,6 +166,6 @@ EXPLAIN (ANALYZE, BUFFERS) <query>;
 
 ## Связанное
 
-- Скилл `psql` — карта 15 схем, таблиц, large-table warnings, запуск запросов через `psql service=<service>`.
+- Проектный скилл `psql` (репозиторий AiPlus) — карта 15 схем, таблиц, large-table warnings, запуск запросов через `psql service=<service>`. Вне AiPlus — `psql` напрямую, глобального скилла с таким именем нет.
 - Скилл `database-reviewer` — чек-лист ревью SQL/схем.
 - Скилл `database-migrations` — zero-downtime миграции под Goose.

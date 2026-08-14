@@ -5,6 +5,8 @@ description: Tests in real browsers via Chrome DevTools MCP. Use when building o
 
 # Browser Testing with DevTools
 
+> **Требуется MCP-сервер, которого сейчас нет.** В `~/.claude.json` секция `mcpServers` пуста — тулы `mcp__chrome-devtools__*` в сессии недоступны, хотя разрешения на них в `settings.json` уже прописаны. Перед работой по этому скиллу подключи сервер: `claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest`, затем перезапусти сессию. Если сервера нет — не имитируй его вызовы, скажи пользователю и предложи проверку другим способом.
+
 ## Overview
 
 Use Chrome DevTools MCP to give your agent eyes into the browser. This bridges the gap between static code analysis and live browser execution — the agent can see what the user sees, inspect the DOM, read console logs, analyze network requests, and capture performance data. Instead of guessing what's happening at runtime, verify it.

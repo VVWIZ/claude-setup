@@ -38,7 +38,7 @@ In `~/.claude/settings.json`:
       "matcher": "Edit|Write",
       "hooks": [{
         "type": "command",
-        "command": "node \"~/.claude/hooks/ecc/suggest-compact.js\"",
+        "command": "node \"$HOME/.claude/hooks/ecc/suggest-compact.js\"",
         "timeout": 10
       }]
     }]

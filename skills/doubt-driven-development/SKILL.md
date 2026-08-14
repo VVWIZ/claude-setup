@@ -113,6 +113,8 @@ In Claude Code, spawn a general-purpose subagent (or Explore for read-only artif
 
 A single-model reviewer shares blind spots with the original author — a colder, different-architecture model catches them. Doubt-driven is already opt-in for non-trivial decisions, so within that scope offering cross-model is part of the skill's value, not optional friction.
 
+> **Availability note (this setup):** the CLIs named below (`gemini`, `codex`) are not part of this environment and may not be installed — Step 2 verifies PATH before use, so their absence breaks nothing. Do **not** substitute a Claude subagent for this step: another Claude (including `@architect` on Fable) shares the same architecture and therefore the same blind spots, which is exactly what this section exists to avoid. If no external CLI is available, offer manual external review or skip — and say plainly that the cross-model check did not run.
+
 **Interactive sessions: always offer. Never silently skip.**
 
 **Step 1: Ask the user**

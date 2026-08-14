@@ -117,6 +117,15 @@ Implementer subagents report one of four statuses. Handle each appropriately:
 
 **Never** ignore an escalation or force the same model to retry without changes. If the implementer said it's stuck, something needs to change.
 
+## Retry с причиной (зеркало minimise `build_retry_prompt`)
+
+При любом повторном диспатче (BLOCKED / провал теста / findings ревьюера) — в промпт **повторной** попытки обязательно внести префиксом:
+
+1. Что было сделано в прошлой попытке и **что именно не прошло** (лог / ошибка / findings ревьюера — дословно, обрезать до сути).
+2. Установку: «не повторяй тот же путь — зайди иначе».
+
+Никогда не пере-диспатчить тем же промптом без этого блока — это конкретизация правила «Never force the same model to retry without changes». Цель: субагент видит прошлую ошибку и не наступает на неё повторно, а не крутит один и тот же подход вслепую.
+
 ## Prompt Templates
 
 - `./implementer-prompt.md` - Dispatch implementer subagent

@@ -45,7 +45,7 @@ If no directory exists and no CLAUDE.md preference:
 No worktree directory found. Where should I create worktrees?
 
 1. .worktrees/ (project-local, hidden)
-2. C:\Users\Lenovo\.claude\worktrees\<project-name>\ (global location)
+2. ~/.claude/worktrees/<project-name>/ (global location, current user profile)
 
 Which would you prefer?
 ```
@@ -70,7 +70,7 @@ Fix broken things immediately:
 
 **Why critical:** Prevents accidentally committing worktree contents to repository.
 
-### For Global Directory (C:\Users\Lenovo\.claude\worktrees)
+### For Global Directory (~/.claude/worktrees)
 
 No .gitignore verification needed - outside project entirely.
 
